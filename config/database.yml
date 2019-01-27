@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: opis
+  password: Dfr368qE
+  host: localhost
+
+development:
+  <<: *default
+  database: OpisP1PN_development
+
+test:
+  <<: *default
+  database: OpisP1PN_test
+
+production:
+  <<: *default
+  database: OpisP1MN_production
+  username: opis
+  password: <%= ENV['OPISP1_DATABASE_PASSWORD'] %>
