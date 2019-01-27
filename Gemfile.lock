@@ -274,6 +274,7 @@ DEPENDENCIES
   rails-i18n!
   rails_admin (~> 1.4, >= 1.4.2)
   rails_admin-i18n (~> 1.11, >= 1.11.2)
+  rake
   ransack (= 1.8.9)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
