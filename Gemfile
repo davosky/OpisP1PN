@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap-sass', '~> 3.4'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'bootstrap-datepicker-rails', '~> 1.8', '>= 1.8.0.1'
 gem 'cancancan', '~> 2.3'
 gem 'coffee-rails', '~> 4.1.0'
