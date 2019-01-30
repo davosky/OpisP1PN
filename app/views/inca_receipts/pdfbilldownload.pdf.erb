@@ -96,6 +96,11 @@
             <%= @ufficio %>
           </strong>
         </h3>
+        <p>
+          <small id='smallandlite'>
+            operatore:&nbsp;<%= current_user.name %>
+          </small>
+        </p>
         <h3>
           <strong>
             Periodo:&nbsp;
@@ -157,16 +162,6 @@
           </tr>
         </tbody>
       </table>
-      <footer>
-        <hr>
-        <small id='smallandlite'>
-          operatore:&nbsp;<%= current_user.name %>
-        </small>
-        <br>
-        <small>
-          <strong>OpisP1</strong> web-application to manage receipts and subscriptions - <strong>&copy;&nbsp;The Davosky Connection 2018</strong>
-        </small>
-      </footer>
     </div>
   </body>
 </html>
