@@ -11,11 +11,11 @@
         <div class='col col-lg-3'>
           <div class='field'>
             <%= f.label 'Data Inizio:' %><br>
-            <%= f.text_field :date_gteq, class: 'datepicker form-control' %>
+            <%= f.text_field :date_gteq, class: 'datepicker form-control', id: 'datestart' %>
           </div>
           <div class='field'>
             <%= f.label 'Data Fine:' %><br>
-            <%= f.text_field :date_lteq, class: 'datepicker form-control' %>
+            <%= f.text_field :date_lteq, class: 'datepicker form-control', id: 'dateend' %>
           </div>
         </div>
         <div class='col col-lg-4'>
@@ -81,12 +81,28 @@
       alert("Devi selezionare l'Ufficio e cliccare su Cerca");
       return false;
     };
+    if ($('#datestart').val() == "") {
+      alert("Devi selezionare la data di Inizio");
+      return false;
+    };
+    if ($('#dateend').val() == "") {
+      alert("Devi selezionare la data di Fine");
+      return false;
+    };
     return;
   });
 
   $('#print').click(function () {
     if ($('#office-id').val() == "") {
       alert("Devi selezionare l'Ufficio e cliccare su Cerca");
+      return false;
+    };
+    if ($('#datestart').val() == "") {
+      alert("Devi selezionare la data di Inizio");
+      return false;
+    };
+    if ($('#dateend').val() == "") {
+      alert("Devi selezionare la data di Fine");
       return false;
     };
     return;
