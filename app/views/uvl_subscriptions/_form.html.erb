@@ -293,6 +293,17 @@
     <div class='col col-lg-12'>
       <div class='col col-lg-9'>
         <div class='field'>
+          <%= f.label 'Tessera Consegnata:' %><strong id='text-danger'>*</strong><br>
+          <%= f.collection_select(:delivery_card_id, DeliveryCard.order('name ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr id='hr-info'>
+  <div class='row'>
+    <div class='col col-lg-12'>
+      <div class='col col-lg-9'>
+        <div class='field'>
           <%= f.label 'Note:' %><br>
           <%= f.text_area :note %>
         </div>

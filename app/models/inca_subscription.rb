@@ -15,6 +15,7 @@ class IncaSubscription < ActiveRecord::Base
   belongs_to :privacy_three
   belongs_to :cancellation
   belongs_to :user
+  belongs_to :delivery_card
 
   before_create :set_name
   def set_name
@@ -45,5 +46,6 @@ class IncaSubscription < ActiveRecord::Base
   validates :privacy_one, presence: true
   validates :privacy_two, presence: true
   validates :privacy_three, presence: true
+  validates :delivery_card_id, presence: true
   validates_presence_of :cancellation_reason, :if => lambda { self.cancellation_id != nil }
 end

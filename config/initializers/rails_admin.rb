@@ -663,6 +663,9 @@ RailsAdmin.config do |config|
     configure :updated_at do
       label 'Aggiornato il:'
     end
+    configure :delivery_card do
+      label 'Tessera Consegnata:'
+    end
   end
 
   config.model 'UvlSubscription' do
@@ -807,6 +810,9 @@ RailsAdmin.config do |config|
     configure :updated_at do
       label 'Aggiornato il:'
     end
+    configure :delivery_card do
+      label 'Tessera Consegnata:'
+    end
   end
 
   config.model 'Tariff' do
@@ -833,6 +839,27 @@ RailsAdmin.config do |config|
     end
     configure :updated_at do
       label 'Aggiornato il:'
+    end
+  end
+
+  config.model 'DeliveryCard' do
+    visible true
+    label 'Tessera Consegnata'
+    label_plural 'Tessera Consegnata'
+    configure :name do
+      label 'Tessera Consegnata:'
+    end
+    configure :created_at do
+      label 'Creato il:'
+    end
+    configure :updated_at do
+      label 'Aggiornato il:'
+    end
+    configure :inca_subscriptions do
+      label 'Sottoscrizioni INCA:'
+    end
+    configure :uvl_subscriptions do
+      label 'Sottoscrizioni UVL:'
     end
   end
 

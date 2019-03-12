@@ -28,6 +28,16 @@
                 RINNOVO:&nbsp;<%= inline_svg('check_yes.svg', size: '11pt * 11pt', preserve_aspect_ratio: 'xMaxYMax meet') %>
                 NUOVA ISCRIZIONE:&nbsp;<%= inline_svg('check_no.svg', size: '11pt * 11pt', preserve_aspect_ratio: 'xMaxYMax meet') %>
               <% end %>
+              &nbsp;|&nbsp;
+              <% if @uvl_subscription.delivery_card.name == 'SI' %>
+                Tessera Consegnata:&nbsp;
+                NO&nbsp;<%= inline_svg('check_no.svg', size: '11pt * 11pt', preserve_aspect_ratio: 'xMaxYMax meet') %>
+                SI:&nbsp;<%= inline_svg('check_yes.svg', size: '11pt * 11pt', preserve_aspect_ratio: 'xMaxYMax meet') %>
+              <% elsif @uvl_subscription.delivery_card.name == 'NO' %>
+                Tessera Consegnata:&nbsp;
+                NO:&nbsp;<%= inline_svg('check_yes.svg', size: '11pt * 11pt', preserve_aspect_ratio: 'xMaxYMax meet') %>
+                SI:&nbsp;<%= inline_svg('check_no.svg', size: '11pt * 11pt', preserve_aspect_ratio: 'xMaxYMax meet') %>
+              <% end %>
               </p>
             </div>
             <hr>

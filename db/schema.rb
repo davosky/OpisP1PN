@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181226145127) do
+ActiveRecord::Schema.define(version: 20190312124353) do
 
   create_table "cancellations", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20181226145127) do
   create_table "company_typologies", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.integer  "position",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "delivery_cards", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -130,11 +136,14 @@ ActiveRecord::Schema.define(version: 20181226145127) do
     t.datetime "pdf_updated_at"
     t.datetime "created_at",                                                                   null: false
     t.datetime "updated_at",                                                                   null: false
+    t.string   "card_delivery",            limit: 255
+    t.integer  "delivery_card_id",         limit: 4
   end
 
   add_index "inca_subscriptions", ["cancellation_id"], name: "index_inca_subscriptions_on_cancellation_id", using: :btree
   add_index "inca_subscriptions", ["category_id"], name: "index_inca_subscriptions_on_category_id", using: :btree
   add_index "inca_subscriptions", ["company_typology_id"], name: "index_inca_subscriptions_on_company_typology_id", using: :btree
+  add_index "inca_subscriptions", ["delivery_card_id"], name: "index_inca_subscriptions_on_delivery_card_id", using: :btree
   add_index "inca_subscriptions", ["inca_office_id"], name: "index_inca_subscriptions_on_inca_office_id", using: :btree
   add_index "inca_subscriptions", ["inca_practise_id"], name: "index_inca_subscriptions_on_inca_practise_id", using: :btree
   add_index "inca_subscriptions", ["payment_typology_id"], name: "index_inca_subscriptions_on_payment_typology_id", using: :btree
@@ -343,11 +352,13 @@ ActiveRecord::Schema.define(version: 20181226145127) do
     t.datetime "pdf_updated_at"
     t.datetime "created_at",                                                                   null: false
     t.datetime "updated_at",                                                                   null: false
+    t.integer  "delivery_card_id",         limit: 4
   end
 
   add_index "uvl_subscriptions", ["cancellation_id"], name: "index_uvl_subscriptions_on_cancellation_id", using: :btree
   add_index "uvl_subscriptions", ["category_id"], name: "index_uvl_subscriptions_on_category_id", using: :btree
   add_index "uvl_subscriptions", ["company_typology_id"], name: "index_uvl_subscriptions_on_company_typology_id", using: :btree
+  add_index "uvl_subscriptions", ["delivery_card_id"], name: "index_uvl_subscriptions_on_delivery_card_id", using: :btree
   add_index "uvl_subscriptions", ["payment_typology_id"], name: "index_uvl_subscriptions_on_payment_typology_id", using: :btree
   add_index "uvl_subscriptions", ["practise_typology_id"], name: "index_uvl_subscriptions_on_practise_typology_id", using: :btree
   add_index "uvl_subscriptions", ["privacy_one_id"], name: "index_uvl_subscriptions_on_privacy_one_id", using: :btree
@@ -390,6 +401,7 @@ ActiveRecord::Schema.define(version: 20181226145127) do
   add_foreign_key "inca_subscriptions", "cancellations"
   add_foreign_key "inca_subscriptions", "categories"
   add_foreign_key "inca_subscriptions", "company_typologies"
+  add_foreign_key "inca_subscriptions", "delivery_cards"
   add_foreign_key "inca_subscriptions", "inca_offices"
   add_foreign_key "inca_subscriptions", "inca_practises"
   add_foreign_key "inca_subscriptions", "payment_typologies"
@@ -414,6 +426,7 @@ ActiveRecord::Schema.define(version: 20181226145127) do
   add_foreign_key "uvl_subscriptions", "cancellations"
   add_foreign_key "uvl_subscriptions", "categories"
   add_foreign_key "uvl_subscriptions", "company_typologies"
+  add_foreign_key "uvl_subscriptions", "delivery_cards"
   add_foreign_key "uvl_subscriptions", "payment_typologies"
   add_foreign_key "uvl_subscriptions", "practise_typologies"
   add_foreign_key "uvl_subscriptions", "privacy_ones"
