@@ -5,7 +5,7 @@
         <li>
           <%= link_to inline_svg('sidebar_logo.svg', size: '128px * 72px', preserve_aspect_ratio: 'xMaxYMax meet'), root_path %>
         </li>
-        <% if current_user.institute == 'Patronato INCA' || current_user.admin == true %>
+        <% if current_user.institute == 'Patronato INCA' || current_user.admin == true || current_user.manager == true %>
         <li>
           <hr id='hr-grey'>
         </li>
@@ -48,7 +48,7 @@
       </ul>
       </li>
       <% end %>
-      <% if current_user.institute == 'Ufficio Vertenze e Legale' || current_user.admin == true %>
+      <% if current_user.institute == 'Ufficio Vertenze e Legale' || current_user.admin == true || current_user.manager == true %>
       <li>
         <hr id='hr-grey'>
       </li>
