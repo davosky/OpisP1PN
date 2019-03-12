@@ -225,6 +225,7 @@
                 Sottoscrizione raccolta da:&nbsp;<%= @inca_subscription.institute %>
                 &nbsp;<%= @inca_subscription.inca_office.name %>
                 &nbsp;operatore:&nbsp;<%= @inca_subscription.user.name %>
+                &nbsp; evento attivazione:  <%= @inca_subscription.inca_practise.name %></strong>
               </small>
             </div>
             <hr>
@@ -309,7 +310,7 @@
                 <br>
                 <br>
                 <br>
-                Luogo e data: ____________________________________&nbsp;&nbsp;&nbsp;Firma: _____________________________
+                Luogo e data: ______________________&nbsp;&nbsp;<% @inca_subscription.date.strftime('%d/%m/%Y') %>&nbsp;&nbsp;&nbsp;Firma: _____________________________
               </p>
             </div>
           </div>
