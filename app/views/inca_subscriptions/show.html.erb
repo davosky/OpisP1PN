@@ -121,7 +121,8 @@
         <% end %>
       </div>
       <div class='col col-lg-6' id='text-centered'>
-      <% if @inca_subscription.delivery_card.name == 'SI' %>
+      <% if @inca_subscription.delivery_card_id != nil %>
+        <% if @inca_subscription.delivery_card.name == 'SI' %>
         Tessera Consegnata:&nbsp;
         NO&nbsp;<%= inline_svg('check_no.svg', size: '16pt * 16pt', preserve_aspect_ratio: 'xMaxYMax meet') %>
         SI:&nbsp;<%= inline_svg('check_yes.svg', size: '16pt * 16pt', preserve_aspect_ratio: 'xMaxYMax meet') %>
@@ -130,6 +131,7 @@
         NO&nbsp;<%= inline_svg('check_yes.svg', size: '16pt * 16pt', preserve_aspect_ratio: 'xMaxYMax meet') %>
         SI:&nbsp;<%= inline_svg('check_no.svg', size: '16pt * 16pt', preserve_aspect_ratio: 'xMaxYMax meet') %>
         <% end %>
+      <% end %>
       </div>
     </div>
     <hr id='hr-grey'>
