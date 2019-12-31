@@ -8,7 +8,7 @@ default: &default
 
 development:
   <<: *default
-  database: OpisP1PN_development
+  database: OpisP1PN
 
 test:
   <<: *default
